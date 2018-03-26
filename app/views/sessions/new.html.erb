@@ -30,8 +30,8 @@
 		<h3>Register</h3>
 			<form action="/sessionregs" method="post" class="form-group">
 			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-			Name: <br><input type="text" name = "uclass="form-group"ser[name]"><br><br>
-			Alias: <br><input type="text" name = "user[alias]"><br><br>
+			Name: <br><input type="text" name = "user[name]" class="form-group"><br><br>
+			User name: <br><input type="text" name="user[alias]"><br><br>
 			Email: <br><input type="text" name = "user[email]"><br><br>
 			Password: <br><input type="password" id="Password" name = "user[password]"><br><br>
 			Password Conformation: <br><input type="password" id="Password_Confirmation" name = "user[password_confirmation"><br><br>
