@@ -1,0 +1,35 @@
+<div id="newsSlide">
+  
+  <nav id="nav">
+    <h2 id="user_name">Hi <%=current_user.name%></h2>
+    <div id="current_user_id" style="display: none;"><%=current_user.id%></div>
+    <div id="current_user_name" style="display: none;"><%=current_user.name%></div>
+
+    <form action="/sessions/<%=current_user.id%>" method="post" id="logout">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" id="form_button" value="Log out">
+    </form><br>
+
+    <p id="openComments">Open Comments</p>
+    <p id="closeComments">Close Comments</p>  
+  </nav>
+
+  <div id="commentBody">
+
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e| %>
+        <p style="color: red;"><%= e %></p>
+      <% end %>
+    <% end %>
+
+    <div id="news">
+
+    </div>
+  </div> <!-- end of the news and comment body -->
+</div> <!-- end of the news slide -->
+
+
+<div id="commentSlide"> 
+  
+</div><!-- end of the comment slid -->

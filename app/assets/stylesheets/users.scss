@@ -1,0 +1,173 @@
+#navShow {
+	background: black;
+	color: #ffffff;
+	padding: 20px 20px 0 20px;
+	height: 120px;
+}
+
+#form_button_news {
+	background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+	position: relative;
+	left: 1050px;
+	bottom: 107px;
+	color: #ffffff; 	
+}
+
+#form_button_news:link, #form_button_news:hover, #form_button_news:visited, #form_button_news:active {
+    text-decoration: none;
+}
+
+#home_button {
+	background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+   	position: relative;
+   	left: 920px;
+   	bottom: 80px;
+}
+
+#home_button:link, #home_button:hover, #home_button:visited, #home_button:active {
+    text-decoration: none;
+}
+
+#blogersName {
+	position: relative;
+	bottom: 20px;
+}
+
+#bloggerNews {
+	border: 5px solid grey;
+	background: #ffffff;
+	padding: 5px;
+}
+
+.imageNews {
+	display: inline-block;
+	position: relative;
+	left: 270px;
+}
+
+.newsBody {
+	display: inline-block;
+	margin-left: 30px;
+	width: 600px;
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 1024px) { 
+
+	#form_button {
+		position: relative;
+		left: 650px;	
+	}
+
+	#home_button { 
+		left: 550px;
+	}
+	
+	#blogersName {
+		position: relative;
+		bottom: 20px;
+	}
+
+	.imageNews {
+		display: inline-block;
+		position: relative;
+		left: 0;
+		bottom: 10px;
+	}
+
+	.newsBody {
+		display: inline-block;
+		margin-left: 30px;
+		width: 400px;
+	}	
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 801px) { 
+	
+	#form_button {
+		position: relative;
+		left: 450px;	
+	}
+
+	#home_button { 
+		left: 350px;
+	}
+	
+	#blogersName {
+		position: relative;
+		bottom: 20px;
+	}
+
+	.imageNews {
+		display: inline-block;
+		position: relative;
+		left: 0;
+		bottom: 10px;
+	}
+
+	.newsBody {
+		display: inline-block;
+		margin-left: 10px;
+		width: 250px;
+	}
+
+	#bloggerNews{
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 800px) { 
+
+	.imageNews {
+		display: inline-block;
+		position: relative;
+		left: 0;
+		bottom: 10px;
+	}
+
+	.newsBody {
+		display: inline-block;
+		margin-left: 10px;
+		width: 250px;
+	}
+
+	#bloggerNews {
+		width: 400px;
+		text-align: center;
+	}
+
+	#blogersName > h3 {
+		font-size: 14px;
+	}
+
+	#navShow {
+		width: 400px;
+	}
+
+	#form_button_news {
+		position: relative;
+		left: 220px;
+		bottom: 100px;
+		font-size: 14px;
+	}
+
+	#home_button {
+		position: relative;
+		left: 220px;
+		bottom: 45px;
+		font-size: 14px;
+	}
+}

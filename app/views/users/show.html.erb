@@ -1,0 +1,38 @@
+<nav id="navShow">
+
+  <div id="blogersName">
+	<h3>Bloger`s name: <%=@user.name%></h3>
+  	<h3>Email: <%=@user.email%></h3>
+  </div> 
+
+ <form action="/bright_ideas" id="goHome">
+    <input type="submit" id="home_button" value="Go to News">
+  </form>
+  <form action="/sessions/<%=current_user.id%>" method="post" id="logout">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" id="form_button_news" value="Log out">
+ </form>
+
+</nav>
+
+<h4>Total number of posts: <%= @user.posts.count%></h4>
+<div id="bloggerNews">
+
+  <% @user.posts.reverse.each do |post|%>
+  	<a href="/bright_ideas/<%= post.id%>">
+		<div class="newsBody">
+		  <h3><%= post.newsTitle%></h3>
+		  <h5 style="margin-top: 30px;"><%= post.description%></h5>
+		  <p>Shared <%= post.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %></p>
+		  <p>Total number of likes: <%= post.likes.count%></p>
+		</div>
+		
+		<div class="imageNews">
+		  <img src="<%= post.image %>" alt="News Image" width="350">
+		</div>
+	</a>
+	<hr>
+  <% end %>
+
+</div>

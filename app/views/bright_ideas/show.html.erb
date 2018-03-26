@@ -1,0 +1,53 @@
+<nav id="navNewsStat">
+
+  <form action="/bright_ideas" id="goHomeStat">
+    <input type="submit" id="home_button_newsStat" class="displayInlineClass" value="Go to News">
+  </form>
+
+  <form action="/sessions/<%=current_user.id%>" method="post" id="logout_newsStat" class="displayInlineClass">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" id="form_button_newsStat" value="Log out">
+  </form> 
+</nav>
+
+<h4 class="likes_post">Total likes <%= @likedUsersCount %> Total shared <%= @sharedPost.count %></h4>
+
+<div id="allListNews">
+
+  <div id="newsPastStat" class="displayInlineClass">
+
+    <h3 class="titleStat titleStatMain"><%=@post.newsTitle%></h3>
+
+    <div class="postImageStat">
+      <img src="<%= @post.image %>" alt="News Image">
+    </div>
+    
+    <p class="titleStat"><%=@post.description%></p>
+    <a href="<%= @post.url%>"><p>Read more ...</p></a>
+  </div>
+
+  <div class="displayInlineClass">
+    
+    <div class="displayInlineClass" id="likedUsersPost">
+      <h4 style="text-decoration: underline;">Liked By:</h4>
+
+      <% @users.last(10).each do |user| %>
+        <% @likedUsers.each do |likeduser| %>
+          <% if likeduser.user_id == user.id %>
+            <p><%= user.name %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div class="displayInlineClass" id="commentsUsersPost"> 
+      <h4 style="text-decoration: underline;">Recent shares and comments</h4>
+
+        <% @sharedPost.last(10).reverse.each do |posted|%>
+        <a href="/users/<%= posted.user.id%>"><p><span style="text-decoration: underline;"><%= posted.user.name%></span></a> <%=posted.content%></p> <p><%=posted.created_at.strftime('Shared on %m/%d/%Y at %I:%M%p') %> - <%=posted.likes.count%> people liked</p>
+          <hr>
+        <% end %>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,196 @@
+body{ 
+
+	background-image: url('back1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+	margin-left: 100px;
+	margin-right: 100px;
+	-webkit-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+
+.title {
+	color: #000000;
+	font-weight: bold;
+}
+
+.error {
+	 color: green;
+	 font-weight: bold;
+}
+
+#error_div {
+	position: absolute;
+	left: 65px;
+	bottom: 40px;
+	text-align: center;
+}
+
+#error_div > p {
+	color: red;
+	font-size: 15px;
+	background: #D3D3D3;
+}
+
+.forms {
+	background-image: url('form.png');
+	display: inline-block;
+	position: absolute;
+	top: 21%;
+	opacity: 0.95;
+	padding: 30px 15px 0 15px;
+	border: 2px solid #5F9EA0;
+	border-radius: 5px;
+}
+
+#regForm {
+	background-image: url('form.png');
+	left: 20%; 
+}
+
+#loginForm {
+	left: 3%; 
+}
+
+#newsLogin {
+	position: absolute;
+	left: 35%;
+	right: 6%;
+}
+
+#headline {
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+	line-height: 200%;
+	color: #000000;
+	font-weight: bold;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+@media only screen and (max-width: 1300px) and (min-width: 1024px) {
+	
+	.title {
+		font-size: 26px;
+	}
+
+    #newsLogin {
+		max-width: 100%;
+		max-height: 100%;
+		position: absolute;
+		left: 47%;
+		right: 3%;
+	}
+
+	#regForm {
+		left: 25%; 
+	}
+
+	#headline {
+		line-height: 200%;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	#error_div {
+		left: 60px;
+		bottom: 30px;
+	}
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 801px) {
+	
+	.title {
+		font-size: 22px;
+	}
+
+    #newsLogin {
+		max-width: 100%;
+		max-height: 100%;
+		position: absolute;
+		left: 58%;
+		right: 3%;
+	}
+
+	#regForm {
+		left: 30%; 
+	}
+
+	#headline {
+		max-width: inherit;
+		line-height: 200%;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	#error_div {
+		left: 50px;
+		bottom: 25px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	
+	.title {
+		font-size: 18px;
+	}
+
+    #newsLogin {
+    	display: none;
+	}
+
+	#loginForm {
+		left: 8%;
+	}
+
+	#regForm {
+		left: 55%; 
+	}
+
+	.forms {
+		width: 40%; 
+		top: 15%;
+		text-align: center;
+	}
+
+	#headline {
+		max-width: inherit;
+		line-height: 200%;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	#error_div {
+		left: 75px;
+		bottom: 35px;
+	}
+
+}
+
+@media only screen and (max-width: 520px) { 
+
+	
+	body{ 
+	margin-left: 5%;
+	margin-right: 5%;
+	}
+
+	.forms {
+		display: block;
+		position: initial;
+		opacity: 0.85;
+		width: 100%;
+		padding: 10px 35px 0 25px;
+		margin-bottom: 10px;
+		margin-top: 55px;
+	}
+
+	.buttons {
+		width: 60%;
+	}
+
+	#error_div {
+		left: 150px;
+		top: 10px;
+	}
+}

@@ -1,0 +1,98 @@
+<div class="loginPage">
+	<h1 class="title">Welcome to ABC News Forum</h1>
+	<h2 class="title">Register and take part in dicussions about top headlines news</h2>
+
+	<div id="error_div">
+		<% if flash[:errors] %>
+			<% flash[:errors].each do |e| %>
+				<p><%= e %></p>
+			<% end %>
+		<% end %>
+
+		<% if flash[:message] %>
+				<p class="error"><%= flash[:message] %></p>
+		<% end %>
+	</div>
+
+	<div id="loginForm" class="forms">
+		<p>To avoid registration use the <br> following login information:</p>
+		<p style="color: red;">Email: John@mail.com <br> Password: Mmmmmmmmm</p>
+		<h3>Log in</h3>
+			<form action="/sessions" method="post" class="form-group">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			Email: <br><input type="text" name = "email" autofocus="true"><br><br>
+			Password: <br><input type="password" name = "password"><br><br>
+			<input type="submit" class="btn btn-primary" name="Log In" value="Log In">
+			</form><br>
+	</div>
+	
+	<div id="regForm" class="forms">
+		<h3>Register</h3>
+			<form action="/sessionregs" method="post" class="form-group">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			Name: <br><input type="text" name = "uclass="form-group"ser[name]"><br><br>
+			Alias: <br><input type="text" name = "user[alias]"><br><br>
+			Email: <br><input type="text" name = "user[email]"><br><br>
+			Password: <br><input type="password" id="Password" name = "user[password]"><br><br>
+			Password Conformation: <br><input type="password" id="Password_Confirmation" name = "user[password_confirmation"><br><br>
+			<input type="submit" class="btn btn-primary" name="Join" value="Register"><br><br>
+			</form>
+	</div>	
+
+	<div id="newsLogin">
+		<h3 id="headline"></h3>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var words = [];
+	var el = $('#headline');
+
+		$.get('https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=7ec0f954c3d94809812987b998678fea', 
+			function(res) {
+			var title = '';
+					
+			console.log(res);
+			for (var i=0; i<res.articles.length; i++) {
+				words.push(res.articles[i].title);
+			}	
+
+		// SCROLLING
+		var word_counter = 0,
+		character_counter = 0,
+		array_count = 0;
+		
+		function updateText()
+		{	
+			if(words.length == array_count) {
+				return;
+			}
+			else if (words[word_counter][character_counter] == " "){	
+				el.append("&nbsp;");
+			    character_counter++;
+			}	
+			else{
+				el.append(words[word_counter][character_counter++]);
+			}
+
+			if(character_counter == words[word_counter].length+1) {
+				word_counter++; 	
+				character_counter = 0;	
+				el.append("<br>");
+				array_count++;
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == words.length)
+				   word_counter = 0;
+			} 
+		} 	
+
+		setInterval(updateText, 60);
+		
+		}, 'json');		
+		
+        return false;
+	});
+</script>

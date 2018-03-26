@@ -1,0 +1,110 @@
+<% posts.reverse.each do |post|%>
+<a href="/users/<%= post.user_id%>"><p class="contentShared"><span style="text-decoration: underline;"><%= post.fullname %></span> shared <%= post.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %><p></a>
+
+<div class="contentSharedDiv">
+  <a href="/users/<%= post.user_id%>"><p class="contentShared"><%= post.content %></p></a>
+</div>
+
+<div class="sharedNews">
+  <a href="/bright_ideas/<%= post.id%>">
+    <div class="imageShared">
+      <img src="<%= post.image %>" alt="News Image" width="90" heigth="90">
+    </div>
+  <h4 class="titleShared"><%= post.newsTitle %> &#8667; </h4></a>
+</div>
+
+  <% unless post.users.include?(current_user) %> 
+    <!-- LIKE -->
+    <form class='like'>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" id="current_user" name="like[user_id]" value="<%= current_user.id %>">
+      <input type="hidden" id="post_id" name="like[post_id]" value="<%= post.id %>">
+      <input type="submit" class="button_like" value="like">
+    </form>
+
+    <!-- UNLIKE -->
+    <% else %>
+      <form class='unlike'>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="like[user_id]" value="<%= current_user.id %>">
+        <input type="hidden" name="like[post_id]" value="<%= post.id %>">
+        <input type="submit" class="button_unlike" value="unlike">
+      </form>
+    <% end %> 
+
+    <!-- PEOPLE LIKED -->
+    <a href="/bright_ideas/<%= post.id%>"><p class="liked"><%= post.likes.count %>  poeple liked this</p></a>
+
+    <!-- DELETE -->
+    <% if post.user_id == current_user.id %>
+
+    <form class="delete">
+      <input type="hidden"name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" class="delete_id" name="id" value="<%= post.id %>">
+      <input type="submit" class="button_delete" value="delete">
+    </form>  
+
+  <% end %> 
+
+    <form class="comment">
+      <input type="hidden"name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="text" class="comment_text" name="comment[content]" placeholder="Your comment...">
+      <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>">
+      <input type="hidden" name="comment[post_id]" value="<%= post.id %>">  
+      <input type="hidden" name="comment[name]" value="<%= current_user.name %>">  
+      <input type="submit" class="button_comment" value="Comment">
+    </form>
+
+  <!-- SHOW COMMENT SECTION -->
+  <div class="allComments">
+
+    <p class="commentCount"><%= post.comments.count%> people commented &#8628;</p>
+
+    <p class="listComments">hide comments &#x21B0; </p>
+
+    <div class="theComment">
+      <% post.comments.reverse.each do |comment| %>
+      <a href="/users/<%= comment.user_id%>"><p class="commentCount"><span style="text-decoration: underline;"><%= comment.name %></span> commented <%= comment.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %></p></a>
+
+      <!-- Comment text -->
+      <div class="commentSection">
+        <p><%= comment.content %></p>
+          <ul class="commentButtons">
+            <% unless comment.users.include?(current_user) %> 
+              <!-- COMMENT LIKE -->
+              <li><form class='like_comment'>
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="comment_like[comment_id]" value="<%= comment.id %>">
+                  <input type="hidden" name="comment_like[user_id]" value="<%= current_user.id %>">    
+                  <input type="submit" class="button_like_comment" value="like">
+                </form></li>
+              <% else %>
+
+                <!-- COMMENT UNLIKE -->
+              <li><form class='unlike_comment'>
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="comment_like[comment_id]" value="<%= comment.id %>">
+                <input type="hidden" name="comment_like[user_id]" value="<%= current_user.id %>">    
+                <input type="submit" class="button_unlike_comment" value="unlike">
+              </form></li>
+            <% end %>
+
+            <li><p class="comment_like_count"><%= comment.comment_likes.count%> liked this</p></li>
+
+            <% if comment.user_id == current_user.id %>
+            <!-- DELETE COMMENT -->
+              <li><form class="delete_comment">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" class="delete_comment_id" name="id" value="<%= comment.id %>">
+                <input type="submit" class="button_delete_comment" value="delete">
+              </form>
+            <% end %> 
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    <p class="listComments">hide comments &#x21B0; </p>
+  </div>
+<hr>
+<% end %> 
