@@ -1,38 +1,44 @@
-<nav id="navShow">
+<nav class="nav">
 
-  <div id="blogersName">
-	<h3>Bloger`s name: <%=@user.name%></h3>
-  	<h3>Email: <%=@user.email%></h3>
-  </div> 
+  <nav class="nav">
+    <div id="news_nav">
+      <form action="/bright_ideas" class="user_name">
+        <input type="submit" id="home_button_newsStat" class="displayInlineClass" value="Go to News">
+      </form>
 
- <form action="/bright_ideas" id="goHome">
-    <input type="submit" id="home_button" value="Go to News">
-  </form>
-  <form action="/sessions/<%=current_user.id%>" method="post" id="logout">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" id="form_button_news" value="Log out">
- </form>
+      <form action="/sessions/<%=current_user.id%>" method="post" class="logout">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="form_button" value="Log out">
+      </form> 
+    </div>
+  </nav>
 
 </nav>
 
-<h4>Total number of posts: <%= @user.posts.count%></h4>
+<h4><%=@user.name%> - Total number of posts: <%= @user.posts.count%><span id="bloggerEmail">Email: <%=@user.email%></span></h4>
+
 <div id="bloggerNews">
 
   <% @user.posts.reverse.each do |post|%>
-  	<a href="/bright_ideas/<%= post.id%>">
-		<div class="newsBody">
-		  <h3><%= post.newsTitle%></h3>
-		  <h5 style="margin-top: 30px;"><%= post.description%></h5>
-		  <p>Shared <%= post.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %></p>
-		  <p>Total number of likes: <%= post.likes.count%></p>
-		</div>
-		
-		<div class="imageNews">
-		  <img src="<%= post.image %>" alt="News Image" width="350">
-		</div>
-	</a>
-	<hr>
-  <% end %>
+  	<div class-"bloggerNewsContent">
 
+  		<a href="/bright_ideas/<%= post.id%>">
+
+      <div class="imageNews">
+        <img src="<%= post.image %>" alt="News Image" width="350">
+      </div>
+      
+			<div class="newsBody">
+			  <h3><%= post.newsTitle%></h3>
+			  <h5 style="margin-top: 30px;"><%= post.description%></h5>
+			  <p>Shared <%= post.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %></p>
+			  <p>Total number of likes: <%= post.likes.count%></p>
+			</div>
+
+		</a>
+		<hr>
+	</div>
+
+  <% end %>
 </div>

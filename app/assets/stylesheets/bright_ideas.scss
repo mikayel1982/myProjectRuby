@@ -1,48 +1,79 @@
-#nav {
+#newsSlide {
+	background: #ffffff;
+	width: 56%;
+	position: absolute;
+	left: 2%;
+}
+
+.nav {
 	background: black;
+	max-width: 100%;
+	height: 50px;
 	color: #ffffff;
 }
 
-#user_name {
-	display: inline-block;
-	margin-left: 50px;
+.nav h2 a  {
+	color: #ffffff;
 }
 
-#logout {
-	display: inline-block;
-	margin-left: 30px;
+.form_button {
+     background:none!important;
+     color: #ffffff;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     text-decoration: none;
+     font-size: 1.5em;
 }
 
-#openComments, #closeComments{
+.user_name {
+	display: inline-block;
+	margin-left: 5%;
+	font-size: 1.5em;
+}
+
+.user_name:hover {
+	cursor: pointer;
+}
+
+.logout {
+	display: inline-block;
+	margin-left: 8%;
+}
+
+#openComments, #closeComments {
 	color: #ffffff;
 	position: relative;
-	left: 120px;
-	bottom: 22px;
+	left: 30%;
 	display: none;
 }
 
-#newsSlide {
-	background: #ffffff;
-	width: 850px;
-	position: absolute;
-	left: 40px;
+#bloggerEmail {
+	float: right;	
 }
+
+/* NAV END */
+/* API NEW BEGIN */
 
 #news {
 	background: #ffffff;
+	max-width: 100%;
 }
 
 .newsImg {
-	display: inline-block;
-	float: left;
+	max-width: 100%;
+}
+
+.newsImg img {
+	max-width: 100%;
+	height: auto;
 }
 
 .newsTextSection {
-	display: inline-block;
-	width: 410px;
-	padding-right: 3%;
-	padding-left: 3%;
-	float: right;
+
+	word-wrap: break-word;
+	max-width: 100%;
 	color: #000000;
 }
 
@@ -57,59 +88,93 @@
 }
 
 .newPostForm {
-	margin-bottom: 20px;
-	padding-top: 10px;
-	clear: both;
+	margin-bottom: 5%;
 }
 
-.post_text {
-	width: 210px;
-}
-
-#form_button {
-     background:none!important;
-     color:inherit;
-     border:none; 
-     padding:0!important;
-     font: inherit;
-     cursor: pointer;
-     text-decoration: none;
-     font-size: 20px;
+.newPostForm input {
+	width: 48%;
+	display: inline-block;
+	margin: 1%;
 }
 
 #button:link, #button:hover, #button:visited, #button:active {
     text-decoration: none;
 }
 
-#commentBody {
-	padding: 20px;
-	max-height:750px;
-	overflow-y: scroll;
+.commentButton {
+	width: 48%;
+	margin-left: 1%;
+	color: #000000;
 }
 
-.commentButton {
-	width: 160px;
-	margin-left: 10px;
-	color: #000000;
+/* API NEW END */
+/* SHARED NEWS STARTS */
+
+.sharedNews {
+	display: flex;
+	text-align: center;
+	border-color: #505050;
+	border-width: 2px;  
+    border-style: outset;
+    padding: 1px;
+    max-width: 100%;
+}
+
+.imageShared {
+	max-width: 30%;
+	padding: 1%;
+}
+
+.imageShared img {
+	max-width: 100%;
+	min-width: 100%;
+	padding: 1%;
+}
+
+.titleShared {
+	padding: 1%;
+	width: 75%;
+}
+
+.titleShared h4 {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.contentShared {
+	color: #ffffff;
+	word-wrap: break-word;
+	text-decoration: none;
+}
+
+.contentSharedDiv {
+	width: 47%;
+}
+
+#commentBody {
+	padding: 5%;
+	max-width: 100%;
+	height: 1200px;
+	overflow-y: scroll;
 }
 
 #commentSlide {
 	background: #323232;
-	width: 600px;
+	width: 38%;
 	color: #ffffff;
-	padding: 10px;
+	padding: 1%;
 	position: absolute;
 	top: 15px;
 	right: 20px;
 	border-radius: 8px;
 	overflow-y: scroll;
-	height: 800px;
+	height: 1200px;
 }
 
 .like {
 	display: inline-block;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
 .button_like, .button_unlike, .button_delete {
@@ -123,7 +188,7 @@
     font: inherit;
     cursor: pointer;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1em;
 }
 
 .button_like:link, .button_unlike:link, .button_delete:link {
@@ -158,13 +223,13 @@
 
 .unlike {
 	display: inline-block;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
 .delete {
 	display: inline-block; 
-	margin-left: 10px;
+	margin-left: 1%;
 }
 
 .comment {
@@ -175,57 +240,36 @@
 	border: 1px sold #ffffff;
 }
 
-.imageShared {
-	display: inline-block;
-	margin-left: 2px;
-	margin-bottom: 15px;
-	width: 90;
-}
-
-.titleShared {
-	display: inline-block;
-	width: 460px;
-	padding: 10px;
-	color: #ffffff;
-	text-decoration: none;
-}
-
-.contentShared {	
-	color: #ffffff;
-	word-wrap: break-word;
-	text-decoration: none;
-}
-
-.contentSharedDiv {
-	width: 570px;
-}
-
-.sharedNews {
-	border-color: #505050;
-	border-width: 2px;  
-    border-style: outset;
-    padding: 1px;
-}
-
 .liked {
 	color: #ffffff;
 	display: inline-block;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 1%;
+	margin-right: 1%;
 }
 
 .commentCount {
 	color: #ffffff;
-	margin: 10px;
+	margin: 1%;
 }
 
-.commentSection {
-	width: 530px;
-	word-wrap: break-word;
+.comment_section {
+	width: 100%;
 	color: #000000;
+	word-wrap: break-word;
 	background: #ffffff;
-	padding: 10px;
-	margin: 20px;
+	padding: 1%;
+}
+
+.comment_buttons {
+	list-style-type: none;
+	padding-left: 0;
+	padding-top: 1%;
+	margin-bottom: 1%;
+}
+
+.comment_buttons li  {
+    display: inline-block;
+    padding-left: 2%;
 }
 
 .button_delete_comment, .button_like_comment, .button_unlike_comment {
@@ -233,13 +277,12 @@
     color:inherit;
     border: 1px solid #000000; 
     border-radius: 15px;
-    padding:3!important;
     text-align: center;
     vertical-align: middle;
     font: inherit;
     cursor: pointer;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1em;
     display: inline-block;
 }
 
@@ -273,29 +316,14 @@
     outline: 0;
 }
 
-.commentButtons {
-	list-style-type: none;	
-	margin: 0;
-    padding: 0;
-}
-
-.commentButtons li  {
-    display: inline-block;
-    width: 75px;
-}
-
-.comment_like_count {
-	margin-left: -16px;
-} 
-
 .listComments {
 	color: #ffffff;
-	margin-left: 10px;
+	margin-left: 1%;
 }
 
-#navNewsStat {
-	background: black;
-	height: 70px;	
+#news_nav {
+	position: relative;
+	top: 35%;
 }
 
 #home_button_newsStat {
@@ -306,10 +334,7 @@
     font: inherit;
     cursor: pointer;
     text-decoration: none;
-    font-size: 20px;
-    position: relative;
-    top: 20px;
-    left: 930px;
+    font-size: 1em;
 }
 
 #form_button_newsStat {
@@ -320,408 +345,120 @@
     font: inherit;
     cursor: pointer;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2em;
     position: relative;
-    top: 20px;
-    left: 960px;
+    top: 20%;
 }
 
 .displayInlineClass {
 	display: inline-block;
 }
 
-#logout_newsStat {
-	display: inline-block;
-}
-
-#goHomeStat {
-	display: inline-block;
+#newsBody {
+	width: 100%;
 }
 
 #allListNews {
 	border: 5px solid grey;
 	background: #ffffff;
-	padding: 15px;
-	height: 600px;
+	height: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	padding-top: 2%;
+	display: flex;
+	flex-direction: row;
 }
 
-#likedUsersPost {
-	width: 160px;
-	word-wrap: break-word;
-	position: fixed;
-	top: 125px;
-	right: 660px;
+#newsPastStat {
+	width: 60%;
+	padding-left: 5%;
 }
 
 #commentsUsersPost {
-	width: 550px;
+	max-width: 100%;
 	word-wrap: break-word;
-	position: fixed;
-	top: 125px;
-	right: 130px;
+	padding-left: 5%;
+	padding-right: 8%;
+	padding-top: 1%;
+	overflow-y: scroll
 }
 
 .postImageStat img {
-	width: 530px;
+	max-width: 100%;
+	margin-top: 5%;
 }
 
 .titleStat {
-	max-width: 550px;
-	margin-top: 10px;
+	max-width: 100%;
+	font-size: 1.5em;
 }
 
-@media only screen and (max-width: 1300px) and (min-width: 1024px) { 
-
-	#newsSlide {
-		width: 450px;
-	}
-
-	.titleShared {
-		width: 310px;
-	}
-
-	.newsTextSection {
-		width: 400px;
-		padding-right: 5px;
-		padding-left: 5px;
-	}
-
-	.post_text {
-		width: 210px;
-	}
-
-	.contentSharedDiv {
-	width: 420px;
-	}
-
-	.commentSection {
-		width: 380px;
-	}
-
-	.commentButton {
-		width: 160px;
-	}
-
-	#commentSlide {		
-		width: 450px;
-	}
-
-	#home_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 530px;
-	}
-
-	#form_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 560px;
-	}
-
-	#likedUsersPost {
-		width: 100px;
-		position: fixed;
-		top: 125px;
-		right: 500px;
-	}
-
-	#commentsUsersPost {
-		width: 350px;
-		position: fixed;
-		top: 125px;
-		right: 130px;
-	}
-
-	.postImageStat img {
-		width: 250px;
-	}
-
-	.titleStat {
-		max-width: 250px;
-		margin-top: 8px;
-	}
-
-	.titleStatMain {
-		font-size: 18px;
-	}
+.articleStat{
+	max-width: 100%;
+	font-size: 1.2em;
+	margin-top: 6%;
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 801px) { 
-
-	#newsSlide {
-		width: 350px;
-	}
-
-	.titleShared {
-		width: 210px;
-	}
-
-	.newsTextSection {
-		width: 300px;
-	}
-
-	.post_text {
-		width: 110px;
-	}
-
-	.contentSharedDiv {
-	width: 320px;
-	}
-
-	.commentSection {
-		width: 280px;
-	}
-
-	.commentButton {
-		width: 100px;
-	}
-
-	#commentSlide {		
-		width: 350px;
-	}
-
-	#home_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 330px;
-	}
-
-	#form_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 360px;
-	}
-
-	#likedUsersPost {
-		width: 100px;
-		position: fixed;
-		top: 125px;
-		right: 350px;
-	}
-
-	#commentsUsersPost {
-		width: 200px;
-		position: fixed;
-		top: 125px;
-		right: 130px;
-	}
-
-	.postImageStat img {
-		width: 200px;
-	}
-
-	.titleStat {
-		max-width: 200px;
-		margin-top: 5px;
-	}
-
-	.titleStatMain {
-		font-size: 18px;
-	}
-}
 
 @media only screen and (max-width: 800px) { 
-	#newsSlide {
-		width: 250px;
-		left: 10px;
-	}
 
-	.titleShared {
-		width: 210px;
+	#openComments, #closeComments {
+		display: none;
 	}
-
-	.newsTextSection {
-		width: 200px;
-	}
-
-	.newsImg img {
-		width: 180px;
-	}
-
-	.post_text {
-		width: 50px;
-	}
-
-	.contentSharedDiv {
-	width: 220px;
+	
+	.button_comment {
+		margin: 1%;
+		width: 100%;
+		border-radius: 10px;
 	}
 
 	.imageShared {
 		display: none;
 	}
 
-	.commentSection {
-		width: 180px;
-	}
-
-	.commentButton {
-		width: 50px;
-	}
-
-	.button_delete {
-		position: relative;
-		bottom: 5px;
-		width: 70px;
-		height: 30px;
-		font-size: 20px;
-		vertical-align: middle;
-	}
-
-	.button_like {
-		position: relative;
-		left: 8px;
-		width: 70px;
-		height: 30px;
-		font-size: 20px;
-		vertical-align: middle;
-	}
-
-	.button_unlike {
-		position: relative;
-		left: 8px;
-		width: 70px;
-		height: 30px;
-		font-size: 20px;
-		vertical-align: middle;
-	}
-
-	#commentSlide {		
-		width: 250px;
-		position: absolute;
-		right: 1px;
+	.titleShared {
+		width: 95%;
 	}
 
 	.comment_text {
-		width: 210px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		border-radius: 5px;
+		margin: 1%;
+		width: 100%;
+		border-radius: 10px;
 	}
+}
 
-	.button_comment {
-		width: 210px;
-		margin-top: 5px;
-		margin-bottom: 5px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		border-radius: 5px;
-	}
+@media only screen and (max-width: 600px) { 
 
-	#home_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 30px;
-	}
-
-	#form_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 60px;
-	}
-
-	#allListNews {
-		text-align: center;
-		height: 100%;
-	}
-
-	#likedUsersPost {
-		width: 180px;
-		position: initial;
-	}
-
-	#commentsUsersPost {
-		width: 220px;
-		position: initial;
-	}
-
-	.postImageStat img {
-		width: 220px;
-	}
-
-	.titleStat {
-		max-width: 220px;
-		margin-top: 5px;
-	}
-
-	.titleStatMain {
-		font-size: 18px;
+	#bloggerEmail {
+		display: none;
 	}
 }
 
 @media only screen and (max-width: 513px) { 
 
-	#user_name {
-	 	font-size: 20px;
-	}
-
-	#newsSlide {
-		width: 280px;
-		left: 15px;
-	}
-
 	#commentBody{
 		overflow-y: initial;
+		height: auto;
 	}
 
-	.titleShared {
-		width: 210px;
-	}
-
-	.newsTextSection {
-		width: 240px;
-	}
-
-	.newsImg img {
-		width: 230px;
-	}
-
-	.post_text {
-		width: 110px;
-	}
-
-	.contentSharedDiv {
-	width: 220px;
+	.form_button {
+		margin-left: 70%;
 	}
 
 	.imageShared {
 		display: none;
 	}
 
-	.commentSection {
-		width: 210px;
-		position: relative;
-		right: 10px;
-	}
-
-	.commentButton {
-		width: 120px;
-	}
-
-	#commentSlide {		
-		width: 250px;
-		position: absolute;
-		right: 30px;
-		top: 85px;
+	#commentSlide {
+		opacity: 0.98;
+		width: 36%;
+		margin-left: auto;
+		maring-right: auto;
+		margin-left: 5%;
+		maring-right: 5%;
+		height: auto;
 		overflow-y: initial;
-		display: none;
-	}
-
-	#openComments {
-		display: initial;
-	}
-
-	#home_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 30px;
-	}
-
-	#form_button_newsStat {
-	    position: relative;
-	    top: 20px;
-	    left: 60px;
 	}
 
 	#allListNews {
@@ -730,26 +467,24 @@
 	}
 
 	#likedUsersPost {
-		width: 180px;
 		position: initial;
 	}
 
-	#commentsUsersPost {
-		width: 220px;
+	#commentsUsersPost
+	{
 		position: initial;
 	}
 
-	.postImageStat img {
-		width: 220px;
+	#newsPastStat {
+		width: 90%;
 	}
 
-	.titleStat {
-		max-width: 220px;
-		margin-top: 5px;
+	.logout {
+		margin-left: 0;
 	}
 
-	.titleStatMain {
-		font-size: 18px;
+	.displayInlineClass {
+		display: initial;
 	}
 }
 

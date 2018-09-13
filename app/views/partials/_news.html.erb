@@ -7,10 +7,15 @@
 
 <div class="sharedNews">
   <a href="/bright_ideas/<%= post.id%>">
-    <div class="imageShared">
-      <img src="<%= post.image %>" alt="News Image" width="90" heigth="90">
+
+    <div class="titleShared">
+      <h4><%= post.newsTitle %> &#8667; </h4></a>
     </div>
-  <h4 class="titleShared"><%= post.newsTitle %> &#8667; </h4></a>
+
+    <div class="imageShared">
+      <img src="<%= post.image %>" alt="News Image">
+    </div>
+
 </div>
 
   <% unless post.users.include?(current_user) %> 
@@ -68,9 +73,10 @@
       <a href="/users/<%= comment.user_id%>"><p class="commentCount"><span style="text-decoration: underline;"><%= comment.name %></span> commented <%= comment.created_at.strftime(' on %m/%d/%Y at %I:%M%p') %></p></a>
 
       <!-- Comment text -->
-      <div class="commentSection">
+      <div class="comment_section">
         <p><%= comment.content %></p>
-          <ul class="commentButtons">
+          <hr style="margin: 0;">
+          <ul class="comment_buttons">
             <% unless comment.users.include?(current_user) %> 
               <!-- COMMENT LIKE -->
               <li><form class='like_comment'>
@@ -90,8 +96,6 @@
               </form></li>
             <% end %>
 
-            <li><p class="comment_like_count"><%= comment.comment_likes.count%> liked this</p></li>
-
             <% if comment.user_id == current_user.id %>
             <!-- DELETE COMMENT -->
               <li><form class="delete_comment">
@@ -100,6 +104,7 @@
                 <input type="submit" class="button_delete_comment" value="delete">
               </form>
             <% end %> 
+              <li><%= comment.comment_likes.count%> liked this</li>
             </ul>
           </div>
         <% end %>

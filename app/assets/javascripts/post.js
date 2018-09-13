@@ -250,19 +250,19 @@ $(document).on('submit', '.unlike_comment', function(){
       console.log(res)
       for (var i=0; i<res.articles.length; i++) {   
         $('#news').append('<div class="newsImg"><a href="' + res.articles[i].url + '" target="_blank"><img src=' + res.articles[i].urlToImage +
-          ' width="380" alt="'+ res.articles[i].title +'"></a></div>' + '<div class="newsTextSection"><a href="' + res.articles[i].url + '"><h3>' +
+          ' alt="'+ res.articles[i].title +'"></a></div>' + '<div class="newsTextSection"><a href="' + res.articles[i].url + '"><h3>' +
          res.articles[i].title + '</h3><p>' + res.articles[i].description + ' Posted by ' + 
         res.articles[i].author + ' at ' + res.articles[i].publishedAt.slice(0, 10) + '</p><p>Read more ...</p></a></div>' +   
-        '<form class="newPostForm">' + 
+        '<form class="newPostForm" class="form-inline">' + 
           '<input type="hidden" name="authenticity_token" value="'+ AUTH_TOKEN +'">' + 
-          '<input type="text" class="post_text" name="post[content]">' +
+          '<input type="text" class="form-control"  class="post_text" name="post[content]">' +
           '<input type="hidden" name="post[newsTitle]" value="' + res.articles[i].title + '">' +
           '<input type="hidden" name="post[user_id]" value="' + $("#current_user_id").html() + '">' +
           '<input type="hidden" name="post[fullname]" value="' + $("#current_user_name").html() + '">' +
           '<input type="hidden" name="post[image]" value="' + res.articles[i].urlToImage + '">' +
           '<input type="hidden" name="post[description]" value="' + res.articles[i].description + '">' +
           '<input type="hidden" name="post[url]" value="' + res.articles[i].url + '">' +
-          '<input class="commentButton" type="submit" value="Share"></form>');
+          '<input class="btn btn-default" class="commentButton" type="submit" value="Share"></form>');
       }              
     }, 'json');   
   return false; 

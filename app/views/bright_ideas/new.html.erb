@@ -1,18 +1,15 @@
-<div id="newsSlide">
+  <div id="newsSlide">
   
-  <nav id="nav">
-    <h2 id="user_name">Hi <%=current_user.name%></h2>
+  <nav class="nav">
+    <h2 class="user_name"><a href="/users/<%= current_user.id%>">Hi <%=current_user.name%></a></h2>
     <div id="current_user_id" style="display: none;"><%=current_user.id%></div>
     <div id="current_user_name" style="display: none;"><%=current_user.name%></div>
 
-    <form action="/sessions/<%=current_user.id%>" method="post" id="logout">
+    <form action="/sessions/<%=current_user.id%>" method="post" class="logout">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" id="form_button" value="Log out">
+      <input type="submit" class="form_button" value="Log out">
     </form><br>
-
-    <p id="openComments">Open Comments</p>
-    <p id="closeComments">Close Comments</p>  
   </nav>
 
   <div id="commentBody">
@@ -23,7 +20,7 @@
       <% end %>
     <% end %>
 
-    <div id="news">
+    <div id="news" >
 
     </div>
   </div> <!-- end of the news and comment body -->
